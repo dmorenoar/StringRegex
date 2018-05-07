@@ -27,8 +27,9 @@ public class StringRegex {
         String numeros = ".*[0-9].*";
         String letras = ".*[A-Za-z].*";
         String caracEspeciales = ".*[!@#$%&*()_+=|<>?{}\\[\\]~-].*";
+        String acentos = ".*[áéíóúÁÉÍÓÚ].*";
         Pattern regex = Pattern.compile(".*[áéíóúÁÉÍÓÚ].*");
-
+        
         System.out.println("Introduce un texto:");
         String texto = br.readLine();
         
@@ -39,9 +40,13 @@ public class StringRegex {
         if (texto.matches(caracEspeciales)) {
             System.out.println("Contiene caracteres especiales");
         }
+        
+        if (texto.matches(acentos)) {
+            System.out.println("Contiene acentos utilizando regex");
+        }
 
         if (regex.matcher(texto).matches()) {
-            System.out.println("Contiene acentos");
+            System.out.println("Contiene acentos utilizando regex Pattern");
         }
 
     }
